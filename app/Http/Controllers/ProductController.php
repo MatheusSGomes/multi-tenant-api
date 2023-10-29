@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return $products;
     }
 
     /**
@@ -20,7 +21,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->all());
+        return $product;
     }
 
     /**
@@ -28,7 +30,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Product::find($product->id);
     }
 
     /**
@@ -36,7 +38,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->fill($request->all());
+        return $product->save();
     }
 
     /**
@@ -44,6 +47,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        return $product->deleted();
     }
 }
