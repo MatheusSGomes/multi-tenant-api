@@ -30,5 +30,5 @@ Route::get('teste', function () {
 Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
-Route::apiResource('product', ProductController::class);
-Route::apiResource('category', CategoryController::class);
+Route::apiResource('product', ProductController::class)->middleware('auth:sanctum');
+Route::apiResource('category', CategoryController::class)->middleware('auth:sanctum');
