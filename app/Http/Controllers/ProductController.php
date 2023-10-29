@@ -13,7 +13,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        // laradumps
+        // ds()->queriesOn('product query');
         $products = Product::all();
+        // ds()->queriesOff();
         return $products;
     }
 
