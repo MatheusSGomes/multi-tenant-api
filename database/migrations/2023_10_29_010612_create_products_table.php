@@ -17,7 +17,13 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('price');
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories');
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')
+                ->references('id')
+                ->on('companies');
             $table->timestamps();
         });
     }
