@@ -19,7 +19,10 @@ class ProductSeeder extends Seeder
             ->count(20)
             ->make()
             ->each(function (Product $product) use ($categories) {
-                $product->category_id = $categories->random()->id;
+                $tenantId = rand(1, 2);
+                $categoryId = $categories->where('company_id', $tenantId)->random()->id;
+                $product->category_id = $categoryId;
+                $product->company_id = $tenantId;
                 $product->save();
             });
     }
