@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
     {
         $categories = Category::all();
         Product::factory()
-            ->count(100)
+            ->count(20)
             ->make()
             ->each(function (Product $product) use ($categories) {
                 $product->category_id = $categories->random()->id;

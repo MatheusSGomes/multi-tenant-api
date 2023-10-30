@@ -14,7 +14,19 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::factory()
-            ->count(50)
-            ->create();
+            ->count(10)
+            ->make()
+            ->each(function (Category $category) {
+                $category->company_id = 1;
+                $category->save();
+            });
+
+        Category::factory()
+            ->count(10)
+            ->make()
+            ->each(function (Category $category) {
+                $category->company_id = 2;
+                $category->save();
+            });
     }
 }

@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
             ->create([
                 'name' => 'User 1',
                 'email' => 'user1@email.com',
-                'password' => '12345678'
+                'password' => '12345678',
+                'company_id' => 1,
             ]);
 
         User::factory()
@@ -26,7 +27,8 @@ class UserSeeder extends Seeder
             ->create([
                 'name' => 'User 2',
                 'email' => 'user2@email.com',
-                'password' => '12345678'
+                'password' => '12345678',
+                'company_id' => 2,
             ]);
     }
 }
