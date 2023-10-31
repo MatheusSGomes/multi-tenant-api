@@ -13,10 +13,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // laradumps
-        // ds()->queriesOn('product query');
-        $products = Product::all();
-        // ds()->queriesOff();
+        $userCompany = auth()->user()->company_id;
+        $products = Product::where('company_id', $userCompany)->get();
         return $products;
     }
 
