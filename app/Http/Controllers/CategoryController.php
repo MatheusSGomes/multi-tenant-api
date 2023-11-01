@@ -13,8 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $company_id = auth()->user()->company_id;
-        $categories = Category::where('company_id', $company_id)->get();
+        $categories = Category::all();
         return $categories;
     }
 
