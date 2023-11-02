@@ -2,6 +2,7 @@
 
 namespace App\Tenant;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,5 +19,13 @@ trait TenantModels
                 $obj->company_id = $company->id;
             }
         });
+    }
+
+    /**
+     * Criar um relacionamento com company para todos os models
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
     }
 }
