@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        \Tenant::setTenant(Company::find(1));
         User::factory()
             ->count(1)
             ->create([
@@ -22,6 +24,7 @@ class UserSeeder extends Seeder
                 'company_id' => 1,
             ]);
 
+        \Tenant::setTenant(Company::find(2));
         User::factory()
             ->count(1)
             ->create([

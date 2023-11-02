@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,6 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        \Tenant::setTenant(Company::find(1));
+        dd(\Tenant::getTenant());
         $categories = Category::all();
         return $categories;
     }

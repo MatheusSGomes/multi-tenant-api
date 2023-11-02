@@ -14,6 +14,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
+        \Tenant::setTenant(null);
         $categories = Category::all();
         Product::factory()
             ->count(20)
