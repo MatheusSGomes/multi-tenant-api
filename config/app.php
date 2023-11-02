@@ -183,7 +183,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        //'Tenant' => \App\Tenant\TenantFacade::class, // não funcionou
+        'Tenant' => \App\Tenant\TenantFacade::class,
     ])->toArray(),
 
 ];

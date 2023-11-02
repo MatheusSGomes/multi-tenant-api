@@ -14,8 +14,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        \Tenant::setTenant(Company::find(1));
-        dd(\Tenant::getTenant());
         $categories = Category::all();
         return $categories;
     }
